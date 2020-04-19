@@ -8,7 +8,7 @@ def elimina_tildes(cadena):
     s = ''.join((c for c in unicodedata.normalize('NFD',unicode(cadena)) if unicodedata.category(c) != 'Mn'))
     return s
 
-f= open("mini.txt","r")
+f= open("inputPruebas.txt","r")
 g = open("destino.txt","w")
 
 for linea in f:
@@ -23,6 +23,11 @@ for linea in f:
     for i in range (0,largo):   # Recorrer frase
 
         if frase[i] != " " and frase[i] != "." and frase[i] != "-" and frase[i] != "[" and frase[i] != "]" and frase[i] != "," and frase[i] != "\\" and frase[i] != "¿".decode("utf-8") and frase[i] != "?".decode("utf-8") and frase[i] != "¡".decode("utf-8") and frase[i] != "!".decode("utf-8"):         # saltar caracter vacios contador i
+            if frase[i] == "n" and frase[i+1] == "\\":
+                i = i + 2
+            if frase[-j] == "n" and frase[-j-1] == "\\":
+                j = j + 2
+
             while frase[-j] == " " or frase[-j] == "." or frase[-j] == "-" or frase[-j] == "[" or frase[-j] == "]" or frase[-j] == ","or frase[-j] == "\\" or frase[-j] == "¿".decode("utf-8") or frase[-j] == "?".decode("utf-8") or frase[-j] == "¡".decode("utf-8") or frase[-j] == "!".decode("utf-8"): 
                 j = j + 1           # saltar caracter vacios contador j
 
